@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guess the Country</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Loading overlay -->
+  <div id="loading">
+    <div class="spinner"></div>
+    <span>Loading world data&hellip;</span>
+  </div>
+
+  <!-- HUD -->
+  <div id="hud">
+    <!-- Mode selector -->
+    <div class="glass" id="mode-bar">
+      <button class="mode-btn active" data-mode="country">Country</button>
+      <button class="mode-btn"        data-mode="capital">Capital</button>
+    </div>
+
+    <!-- Streak counters -->
+    <div class="glass" id="streak-bar">
+      <div class="s-block">
+        <div class="s-label">Streak</div>
+        <div class="s-val" id="val-streak">0</div>
+      </div>
+      <div class="s-divider"></div>
+      <div class="s-block">
+        <div class="s-label">Best</div>
+        <div class="s-val" id="val-best">0</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Input area -->
+  <div id="input-area">
+    <div id="feedback" class="glass"></div>
+    <div id="input-row">
+      <input id="answer" type="text" placeholder="Nom du pays / Country name…"
+             autocomplete="off" spellcheck="false" autocorrect="off" />
+      <button class="btn" id="btn-ok">OK</button>
+      <button class="btn" id="btn-skip">Skip</button>
+    </div>
+  </div>
+
+  <!-- Map container -->
+  <div id="map"></div>
+
+  <!-- Third-party libraries (UMD bundles, loaded before the ES module) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+
+  <!-- Game entry point (ES module) -->
+  <script type="module" src="js/game.js"></script>
+
+</body>
+</html>
